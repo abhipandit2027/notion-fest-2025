@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-neutral-950">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notion Fest 2025 | Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="h-full text-neutral-100">
+    <div
+      class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-800"
+    >
+      <div class="w-full max-w-5xl px-4 py-8">
+        <!-- Header -->
+        <header
+          class="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+        >
+          <div>
+            <h1
+              class="text-3xl md:text-4xl font-semibold tracking-tight text-white"
+            >
+              Notion Fest <span class="text-emerald-400">2025</span>
+            </h1>
+            <p class="mt-2 text-neutral-300">
+              Official registration portal for the University’s Luxury Tech &
+              Ideas Club showcase.
+            </p>
+            <p id="event-meta" class="mt-1 text-sm text-neutral-400"></p>
+          </div>
+          <div
+            class="inline-flex items-center gap-3 rounded-full border border-emerald-500/40 bg-neutral-900/70 px-5 py-2 shadow-[0_0_25px_rgba(16,185,129,0.25)]"
+          >
+            <div
+              class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"
+            ></div>
+            <span class="text-sm text-emerald-300 font-medium tracking-wide"
+              >Seats filling fast</span
+            >
+          </div>
+        </header>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <!-- Registration Card -->
+          <section
+            class="bg-neutral-900/70 backdrop-blur-xl border border-neutral-800 rounded-2xl p-6 shadow-[0_18px_60px_rgba(0,0,0,0.7)]"
+          >
+            <h2 class="text-xl font-semibold text-white mb-4">Register now</h2>
+            <p class="text-sm text-neutral-400 mb-6">
+              Secure your spot for a day of ideas, design, and systems thinking
+              at the university’s most exclusive tech fest.
+            </p>
+
+            <form id="registration-form" class="space-y-4">
+              <div>
+                <label class="block text-sm text-neutral-300 mb-1" for="name"
+                  >Full Name</label
+                >
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  class="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-3 py-2 text-sm text-neutral-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                  placeholder="e.g., Aarya Verma"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm text-neutral-300 mb-1" for="email"
+                  >Email</label
+                >
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  class="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-3 py-2 text-sm text-neutral-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                  placeholder="e.g., aarya.verma@university.edu"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm text-neutral-300 mb-1" for="regNo"
+                  >University Reg. No.</label
+                >
+                <input
+                  id="regNo"
+                  type="text"
+                  required
+                  class="w-full rounded-lg bg-neutral-900 border border-neutral-700 px-3 py-2 text-sm text-neutral-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                  placeholder="e.g., 21BCE0000"
+                />
+              </div>
+
+              <div id="form-message" class="text-sm mt-1 h-5"></div>
+
+              <button
+                type="submit"
+                id="register-btn"
+                class="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-emerald-500 px-4 py-2.5 text-sm font-semibold text-neutral-950 shadow-[0_18px_45px_rgba(16,185,129,0.7)] hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-neutral-950 transition"
+              >
+                Confirm Registration
+              </button>
+            </form>
+          </section>
+
+          <!-- Ticket Preview / Success -->
+          <section class="space-y-4">
+            <div
+              class="bg-gradient-to-br from-neutral-900 to-neutral-950 border border-neutral-800 rounded-3xl p-5 shadow-[0_18px_60px_rgba(0,0,0,0.8)]"
+            >
+              <p
+                class="text-xs uppercase tracking-[0.2em] text-neutral-500 mb-3"
+              >
+                Exclusive Access
+              </p>
+              <h3 class="text-lg font-semibold text-white mb-2">
+                Your digital pass awaits
+              </h3>
+              <p class="text-sm text-neutral-400 mb-4">
+                Once you complete the form, your personalised ticket with a
+                unique QR code will appear here. Save it as an image and bring
+                it to the venue.
+              </p>
+
+              <div
+                id="ticket-card"
+                class="mt-3 hidden rounded-2xl bg-neutral-900 border border-emerald-500/30 p-4 relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-24 -top-24 h-40 w-40 rounded-full bg-emerald-500/10 blur-3xl"
+                ></div>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 relative z-10"
+                >
+                  <div>
+                    <p
+                      class="text-xs uppercase tracking-[0.18em] text-neutral-400 mb-2"
+                    >
+                      Notion Fest 2025
+                    </p>
+                    <p
+                      id="ticket-name"
+                      class="text-lg font-semibold text-white"
+                    ></p>
+                    <p
+                      id="ticket-event"
+                      class="text-sm text-neutral-300 mt-1"
+                    ></p>
+                    <p
+                      id="ticket-datetime"
+                      class="text-xs text-neutral-400 mt-1"
+                    ></p>
+                    <p id="ticket-id" class="text-[11px] text-neutral-500 mt-2">
+                      Registration ID: —
+                    </p>
+                  </div>
+                  <div class="flex flex-col items-center gap-2">
+                    <div
+                      class="rounded-2xl bg-neutral-950 border border-neutral-700 p-2 shadow-[0_0_35px_rgba(0,0,0,0.8)]"
+                    >
+                      <img
+                        id="ticket-qr"
+                        src=""
+                        alt="QR Code"
+                        class="h-28 w-28 object-contain"
+                      />
+                    </div>
+                    <p class="text-[11px] text-neutral-500">
+                      Scan at entry gate
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                id="download-ticket-btn"
+                class="mt-4 hidden w-full rounded-xl border border-neutral-700 bg-neutral-900 px-4 py-2.5 text-sm font-medium text-neutral-50 hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-neutral-950 transition"
+              >
+                Download Ticket as PNG
+              </button>
+            </div>
+
+            <p class="text-xs text-neutral-500 leading-relaxed">
+              Note: This is a demo system built to illustrate full‑stack design,
+              concurrency‑safe registration, and QR‑based ticketing for
+              university‑scale events.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- html2canvas for ticket download -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="ticket.js"></script>
+  </body>
+</html>
